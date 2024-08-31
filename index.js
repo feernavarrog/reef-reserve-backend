@@ -6,18 +6,18 @@ const app = express();
 app.use(cors());
 
 app.get('/reservas', async (req, res) => {
-    process.env.TNS_ADMIN = "./Wallet_REEFRESERVE";
+  process.env.TNS_ADMIN = "./Wallet_REEFRESERVE";
   let connection;
   try {
     connection = await oracledb.getConnection({
-        user: "admin",
-        password: "HotelRR2024!",
+        user: "reef_user",
+        password: "ReefReserve2024",
         connectString: "reefreserve_high", 
         walletLocation: "./Wallet_REEFRESERVE",
         walletPassword: "HotelRR2024!"
     });
 
-    const result = await connection.execute(`SELECT * FROM RESERVA`);
+    const result = await connection.execute(`SELECT * FROM ESTADO_RESERVA`);
     res.json(result.rows);
 
   } catch (err) {

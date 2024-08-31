@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Usuario</title>
+</head>
+<body>
+    <h2>CRUD Usuario</h2>
+
+    <div>
+        <label for="userId">ID Usuario:</label>
+        <input type="text" id="userId">
+    </div>
+
+    <div>
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo">
+    </div>
+
+    <div>
+        <label for="clave">Clave:</label>
+        <input type="password" id="clave">
+    </div>
+
+    <div>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre">
+    </div>
+
+    <div>
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido">
+    </div>
+
+    <div>
+        <label for="tipo_usuario">Tipo Usuario (1=Admin, 2=Empleado, 3=Cliente):</label>
+        <input type="number" id="tipo_usuario" min="1" max="3">
+    </div>
+
+    <br>
+    <button onclick="createUser()">Crear Usuario</button>
+    <button onclick="getUser()">Obtener Usuario</button>
+    <button onclick="updateUser()">Actualizar Usuario</button>
+    <button onclick="deleteUser()">Eliminar Usuario</button>
+
+    <pre id="result"></pre>
+</body>
+</html>
