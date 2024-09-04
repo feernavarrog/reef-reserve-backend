@@ -1,0 +1,47 @@
+<div>
+    <label for="roomId">ID Habitación:</label>
+    <input type="text" id="roomId">
+</div>
+
+<div>
+    <label for="numero_hab">Número de Habitación:</label>
+    <input type="text" id="numero_hab">
+</div>
+
+<div>
+    <label for="info_hab">Información de la Habitación:</label>
+    <input type="text" id="info_hab">
+</div>
+
+<div>
+    <label for="equipamiento_hab">Equipamiento de la Habitación:</label>
+    <input type="text" id="equipamiento_hab">
+</div>
+
+<div>
+    <label for="valor_diario_hab">Valor Diario:</label>
+    <input type="number" id="valor_diario_hab" min="0" step="0.01">
+</div>
+
+<div>
+    <label for="id_ubicacion">ID Ubicación:</label>
+    <input type="number" id="id_ubicacion" min="1">
+</div>
+
+<div>
+    <label for="id_estado">ID Estado:</label>
+    <input type="number" id="id_estado" min="1">
+</div>
+
+<div>
+    <label for="id_categoria">ID Categoría:</label>
+    <input type="number" id="id_categoria" min="1">
+</div>
+
+<br>
+<button onclick="createRoom()">Crear Habitación</button>
+<button onclick="getRoom()">Obtener Habitación</button>
+<button onclick="updateRoom()">Actualizar Habitación</button>
+<button onclick="deleteRoom()">Eliminar Habitación</button>
+
+<pre id="result"></pre>
