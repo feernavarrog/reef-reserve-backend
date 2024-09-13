@@ -16,8 +16,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Servir archivos estáticos
+// Servir archivos estáticos desde el directorio 'public'
 app.use(express.static('public'));
+
+// Servir archivos estáticos desde 'node_modules'
+app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
 // Rutas de la aplicación
 app.use('/usuarios', usuarioRoutes);
