@@ -28,6 +28,12 @@ app.get('/', (req, res) => {
   res.render('crud');
 });
 
+// Ruta de testeo de la plantilla
+app.get('/rutatest', (req, res) => {res.render('pagina_principal');});
+
+// Ruta Login
+app.get('/login', (req, res) => {res.render('login');});
+
 // Inicializar la base de datos
 database.initialize();
 
