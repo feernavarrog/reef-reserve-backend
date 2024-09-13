@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 });
 
 // Ruta de testeo de la plantilla
-app.get('/rutatest', (req, res) => {res.render('pagina_principal');});
+app.get('/home', (req, res) => {res.render('home');});
 
 // Ruta Login
 app.get('/login', (req, res) => {res.render('login');});
