@@ -1,12 +1,15 @@
-<div>
-    <label for="correo">Correo Electrónico:</label>
-    <input type="email" id="correo">
-</div>
-
-<div>
-    <label for="clave">Clave:</label>
-    <input type="password" id="clave">
-</div>
-
-<br>
-<button onclick="login()">Iniciar sesion</button>
+<!-- views/formularios/form-inicio-sesion.ejs -->
+<form action="/login" method="POST" class="p-4">
+    <div class="form-group">
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrese su correo electrónico" required>
+    </div>
+    <div class="form-group">
+        <label for="clave">Clave:</label>
+        <input type="password" class="form-control" id="clave" name="clave" placeholder="Ingrese su clave" required>
+    </div>
+    <div class="form-group mt-4">
+        <button type="submit" class="btn btn-primary btn-block mb-3">Iniciar sesión</button>
+        <a href="/home" class="btn btn-primary btn-block mb-3">Volver</a>
+    </div>
+</form>

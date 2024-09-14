@@ -16,8 +16,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Servir archivos estáticos
+// Servir archivos estáticos desde el directorio 'public'
 app.use(express.static('public'));
+
+// Servir archivos estáticos desde 'node_modules'
+app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
 // Rutas de la aplicación
 app.use('/usuarios', usuarioRoutes);
@@ -29,7 +32,10 @@ app.get('/', (req, res) => {
 });
 
 // Ruta de testeo de la plantilla
-app.get('/rutatest', (req, res) => {res.render('pagina_principal');});
+app.get('/home', (req, res) => {res.render('home');});
+app.get('/login', (req, res) => {res.render('login');});
+app.get('/registro_usuario', (req, res) => {res.render('registro_usuario');});
+
 
 // Ruta Login
 app.get('/login', (req, res) => {res.render('login');});
