@@ -19,7 +19,21 @@
         <h1 class="text-center">Panel de Administración</h1>
         <div class="text-center mt-4">
             <img src="/images/fer.png" class="img-fluid" alt="Imagen de Fer">
+            <button class="btn btn-primary" onclick="getAllUsers()">Ver Usuarios</button>
             <a href="/usuario" class="btn btn-primary">Administración de usuarios</a>
+            <table class="table table-striped mt-3" id="userTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Contraseña</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    <!-- Los usuarios se poblarán aquí -->
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -27,5 +41,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/usuario.js"></script> 
 </body>
 </html>
