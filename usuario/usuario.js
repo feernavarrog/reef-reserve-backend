@@ -1,5 +1,11 @@
 const database = require('../services/database');
 
+// Obtener todos los usuarios
+async function obtenerUsuarios() {
+    const sql = `SELECT * FROM usuario`;
+    return await database.executeQuery(sql);
+}
+
 // Crear un nuevo usuario
 async function crearUsuario(usuario) {
     const sql = `INSERT INTO usuario (correo_electronico, clave_usuario, nombre_usuario, apellido_usuario, id_tipo_usuario)
@@ -73,6 +79,7 @@ async function eliminarUsuario(id_usuario) {
 
 // Exporta las funciones de negocio correctamente
 module.exports = {
+    obtenerUsuarios,
     crearUsuario,
     obtenerUsuario,
     actualizarUsuario,

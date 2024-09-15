@@ -26,9 +26,9 @@ app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 app.use('/usuarios', usuarioRoutes);
 app.use('/habitaciones', habitacionRoutes);
 
-// Ruta principal para el CRUD
+// Ruta PANEL DE ADMINISTRADOR PARA TESTEAR
 app.get('/', (req, res) => {
-  res.render('crud');
+  res.render('panel-admin');
 });
 
 // Ruta de testeo de la plantilla

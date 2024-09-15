@@ -15,6 +15,21 @@ router.post('/', async (req, res) => {
     }
 });
 
+// Obtener todos los usuarios
+router.get('/obtenerUsuarios', async (req, res) => {
+    try {
+        const result = await usuarioService.obtenerUsuarios();
+        if (result.rows.length === 0) {
+            res.status(404).send('No existen usuarios registrados');
+        } else {
+            res.status(200).json(result.rows);  // Devuelve todos los usuarios
+        }
+    } catch (err) {
+        console.error("Error al obtener usuarios:", err);
+        res.status(500).send(err.message);
+    }
+});
+
 // Obtener un usuario por ID
 router.post('/obtenerUsuario', async (req, res) => {
     const { id_usuario } = req.body;

@@ -1,6 +1,28 @@
 
 // Funciones para realizar operaciones CRUD sobre la tabla de usuarios
 
+// Obtener todos los usuarios
+async function getAllUsers() {
+    const response = await fetch('http://localhost:3000/usuarios/obtenerUsuarios');
+    const users = await response.json();
+    console.log(users);
+    
+    const tableBody = document.getElementById('userTableBody');
+    tableBody.innerHTML = '';  // Limpiar la tabla
+
+    users.forEach(user => {
+        const row = `
+            <tr>
+                <td>${user[0]}</td>
+                <td>${user[3]}</td>
+                <td>${user[1]}</td>
+                <td>${user[2]}</td>
+            </tr>
+        `;
+        tableBody.innerHTML += row;
+    });
+}
+
 // Crear un usuario
 async function createUser() {
     const user = {
