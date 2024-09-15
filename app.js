@@ -33,8 +33,10 @@ app.get('/', (req, res) => {
 
 // Ruta de testeo de la plantilla
 app.get('/home', (req, res) => {res.render('home');});
-app.get('/login', (req, res) => {res.render('login');});
 app.get('/registro_usuario', (req, res) => {res.render('registro_usuario');});
+app.get('/panel-admin', (req, res) => { res.render('panel-admin'); });
+app.get('/usuario', (req, res) => { res.render('usuario'); });
+
 
 
 // Ruta Login

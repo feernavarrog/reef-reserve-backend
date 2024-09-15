@@ -1,37 +1,62 @@
-    <div>
-        <label for="userId">ID Usuario:</label>
-        <input type="text" id="userId">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Usuarios</title>
+    <!-- Bootstrap CSS -->
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/generalStyle.css" rel="stylesheet">
+</head> 
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">CRUD de Usuarios</h1>
+        <div class="text-center">
+            <img src="/images/fer.png" class="img-fluid img-thumbnail" alt="Imagen de Fer" style="max-width: 400px;">
+        </div>
+        <form>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="userId" class="form-label">ID Usuario:</label>
+                        <input type="text" class="form-control" id="userId">
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo Electrónico:</label>
+                        <input type="email" class="form-control" id="correo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="clave" class="form-label">Clave:</label>
+                        <input type="password" class="form-control" id="clave">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellido" class="form-label">Apellido:</label>
+                        <input type="text" class="form-control" id="apellido">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipo_usuario" class="form-label">Tipo Usuario (1=Admin, 2=Empleado, 3=Cliente):</label>
+                        <input type="number" class="form-control" id="tipo_usuario" min="1" max="3">
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <button type="button" class="btn btn-primary" onclick="createUser()">Crear Usuario</button>
+                        <button type="button" class="btn btn-secondary" onclick="getUser()">Obtener Usuario</button>
+                        <button type="button" class="btn btn-warning" onclick="updateUser()">Actualizar Usuario</button>
+                        <button type="button" class="btn btn-danger" onclick="deleteUser()">Eliminar Usuario</button>
+                    </div>
+                    <pre id="result" class="mt-3"></pre>
+                </div>
+            </div>
+        </form>
     </div>
-
-    <div>
-        <label for="correo">Correo Electrónico:</label>
-        <input type="email" id="correo">
-    </div>
-
-    <div>
-        <label for="clave">Clave:</label>
-        <input type="password" id="clave">
-    </div>
-
-    <div>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre">
-    </div>
-
-    <div>
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido">
-    </div>
-
-    <div>
-        <label for="tipo_usuario">Tipo Usuario (1=Admin, 2=Empleado, 3=Cliente):</label>
-        <input type="number" id="tipo_usuario" min="1" max="3">
-    </div>
-
-    <br>
-    <button onclick="createUser()">Crear Usuario</button>
-    <button onclick="getUser()">Obtener Usuario</button>
-    <button onclick="updateUser()">Actualizar Usuario</button>
-    <button onclick="deleteUser()">Eliminar Usuario</button>
-
-    <pre id="result"></pre>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/js/usuario.js"></script> <!-- Asegúrate de tener este archivo para manejar las funciones createUser, getUser, updateUser, deleteUser -->
+</body>
+</html>
