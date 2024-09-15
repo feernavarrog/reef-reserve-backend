@@ -1,0 +1,22 @@
+<form action="/register" method="POST" class="p-4">
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+    </div>
+    <div class="form-group">
+        <label for="apellido">Apellido:</label>
+        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingrese su apellido" required>
+    </div>
+    <div class="form-group">
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrese su correo electrónico" required>
+    </div>
+    <div class="form-group">
+        <label for="clave">Contraseña:</label>
+        <input type="password" class="form-control" id="clave" name="clave" placeholder="Ingrese su contraseña" required>
+    </div>
+    <div class="form-group mt-4">
+        <button type="submit" class="btn btn-primary btn-block mb-3">Registrarse</button>
+        <a href="/home" class="btn btn-primary btn-block mb-3">Volver</a>
+    </div>
+</form>
