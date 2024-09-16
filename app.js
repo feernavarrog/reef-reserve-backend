@@ -31,12 +31,16 @@ app.get('/', (req, res) => {
   res.render('panel-admin');
 });
 
-// Ruta de testeo de la plantilla
+//! Ruta de testeo de la plantilla
 app.get('/home', (req, res) => {res.render('home');});
-app.get('/registro_usuario', (req, res) => {res.render('registro_usuario');});
-app.get('/panel-admin', (req, res) => { res.render('panel-admin'); });
-app.get('/usuario', (req, res) => { res.render('usuario'); });
+app.get('/register', (req, res) => {res.render('register');});
 
+app.get('/panel-admin', (req, res) => { res.render('panel-admin'); });
+
+app.get('/admin-createUser', (req, res) => { res.render('admin-createUser'); });
+app.get('/admin-readUser', (req, res) => { res.render('admin-readUser'); });
+app.get('/admin-createUser', (req, res) => { res.render('admin-createUser'); });
+app.get('/admin-updateUser', (req, res) => { res.render('admin-updateUser'); });
 
 
 // Ruta Login
