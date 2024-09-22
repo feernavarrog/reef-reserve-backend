@@ -20,9 +20,16 @@
     <div class="container">
         <h1 class="mt-5 bebas-neue">TU DESCANSO</h1>
         <h1 class="mt-5 bebas-neue">NUESTRA PRIORIDAD</h1>
-                <!-- Inclui el calendario -->
-                <%- include('elementos/calendario') %>
+
+                <!-- !Inclui el calendario: no es funcional, Sprint 2 se desarrolla -->
+                <%- include('calendario') %>
+
+                <!-- Catalogo provisorio, luego se hará esto desde "ver habitaciones"-->
+                <div class="text-center mt-4">
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='/client-catalog'">Ver Catálogo temporal</button>
+                </div>
     </div>
+    
 
     <!-- Bootstrap JS y las dependencias -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
