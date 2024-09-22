@@ -6,14 +6,20 @@
     <label for="numero_hab">Número de Habitación:</label>
     <input type="text" id="numero_hab">
 </div>
+
+<!-- Ampliada el area de texto en el css roomStyle -->
 <div>
     <label for="info_hab">Información de la Habitación:</label>
-    <input type="text" id="info_hab">
+    <textarea id="info_hab" class="expanded-field" rows="4"></textarea> 
 </div>
+
+<!-- Ampliada el area de texto en el css roomStyle -->
 <div>
     <label for="equipamiento_hab">Equipamiento de la Habitación:</label>
-    <input type="text" id="equipamiento_hab">
+    <textarea id="equipamiento_hab" class="expanded-field" rows="4"></textarea> 
 </div>
+
+
 <div>
     <label for="valor_diario_hab">Valor Diario:</label>
     <input type="number" id="valor_diario_hab" min="0" step="0.01">
@@ -46,7 +52,11 @@
     </select>
 </div>
 <br>
-<button onclick="createRoom()" id="createBtn">Crear Habitación</button>
-<button onclick="updateRoom()" id="updateBtn">Actualizar Habitación</button>
+<button onclick="createRoom()" id="createBtn" class="btn btn-success">Crear Habitación</button>
+<button onclick="updateRoom()" id="updateBtn" class="btn btn-primary">Actualizar Habitación</button>
 
-<pre id="result"></pre>
+<!-- Boton Volver con separacion inferior -->
+<button type="button" class="btn btn-secondary btn-sm" style="margin-top: 1rem;" onclick="window.location.href='/admin-readRoom'">Volver</button>
+
+
+<!-- <pre id="result"></pre> --> 

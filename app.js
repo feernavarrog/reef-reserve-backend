@@ -51,6 +51,9 @@ app.get('/register', (req, res) => {res.render('register');});
 
 app.get('/panel-admin', (req, res) => { res.render('panel-admin'); });
 
+app.get('/carrousel', (req, res) => { res.render('carrousel'); });
+
+
 
 
 app.get('/admin-updateUser', (req, res) => { res.render('admin-updateUser'); });

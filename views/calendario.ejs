@@ -1,3 +1,5 @@
+<!--! Esto es el calendario para escoger fechas en Sprint 2 se desarrolla-->
+
 <!-- views/calendario.ejs -->
 <link href="/css/calendarioStyle.css" rel="stylesheet">
 
@@ -5,11 +7,11 @@
     <div class="calendario-inner">
         <label for="date-range">Fechas de estancia:</label>
         <input type="text" id="date-range" class="form-control" placeholder="Selecciona las fechas de llegada y salida">
-        <button id="save-dates" class="btn btn-primary">Ver habitaciones</button> <!-- Botón para guardar las fechas seleccionadas -->
+        <button id="save-dates" class="btn btn-secondary" disabled>Ver habitaciones</button> <!-- !Botón para guardar las fechas seleccionadas: deshabilitado -->
     </div>
 </div>
 
-<!-- OJO: Ingrese Flatpickr JS (el calendario) y el archivo de traducción al español del mismo-->
+<!-- OJO: hay que Flatpickr JS (el calendario) y el archivo de traducción al español del mismo-->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
 
