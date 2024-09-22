@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>CRUD de Usuarios</title>
     <!-- Bootstrap CSS -->
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/css/generalStyle.css" rel="stylesheet">
-    <!-- Incluir Flatpickr CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
-</head>
-
+    
+</head> 
 <body>
-    <!-- Inclui el menú superior -->
-    <%- include('menu') %>
-
-    <!-- Contenido principal -->
-    <div class="container">
-        <h1 class="mt-5 bebas-neue">TU DESCANSO</h1>
-        <h1 class="mt-5 bebas-neue">NUESTRA PRIORIDAD</h1>
-                <!-- Inclui el calendario -->
-                <%- include('elementos/calendario') %>
+    <div class="container mt-5">
+        <h1 class="text-center" id="titleBar"></h1>
+        <div class="text-center">
+        </div>
+        <form>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <%- include('form-admin-rooms') %>
+                </div>
+            </div>
+        </form>
     </div>
-
-    <!-- Bootstrap JS y las dependencias -->
+    <!-- Bootstrap JS y dependencias -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/js/rooms.js"></script>
+    <script src="/js/admin-createEditRoom.js"></script>
 </body>
 </html>

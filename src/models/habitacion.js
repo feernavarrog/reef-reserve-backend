@@ -1,5 +1,28 @@
 const database = require('../services/database');
 
+// Obtener todos los usuarios
+async function obtenerHabitaciones() {
+    const sql = `
+        SELECT 
+            h.id_habitacion,
+            h.numero_hab,
+            h.info_hab,
+            h.equipamiento_hab,
+            h.valor_diario_hab,
+            h.id_ubicacion,
+            h.id_estado,
+            h.id_categoria,
+            c.desc_cat AS categoria
+        FROM 
+            habitacion h
+        JOIN 
+            categoria_hab c
+        ON 
+            h.id_categoria = c.id_categoria
+    `;
+    return await database.executeQuery(sql);
+}
+
 // Crear una nueva habitación
 async function crearHabitacion(habitacion) {
     const sql = `INSERT INTO habitacion (numero_hab, info_hab, equipamiento_hab, valor_diario_hab, id_ubicacion, id_estado, id_categoria)
@@ -79,6 +102,7 @@ async function eliminarHabitacion(id_habitacion) {
 
 // Exportar las funciones
 module.exports = {
+    obtenerHabitaciones,
     crearHabitacion,
     obtenerHabitacion,
     actualizarHabitacion,

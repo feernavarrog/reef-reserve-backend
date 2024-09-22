@@ -1,7 +1,7 @@
 // routes/usuarioRoutes.js
 const express = require('express');
 const router = express.Router();
-const usuarioService = require('../usuario/usuario');
+const usuarioService = require('../models/usuario');
 
 // Crear un nuevo usuario
 router.post('/', async (req, res) => {
@@ -36,6 +36,23 @@ router.post('/obtenerUsuario', async (req, res) => {
 
     try {
         const result = await usuarioService.obtenerUsuario(id_usuario);
+        if (result.rows.length === 0) {
+            res.status(404).send('Usuario no encontrado');
+        } else {
+            res.status(200).json(result.rows[0]);
+        }
+    } catch (err) {
+        console.error("Error al obtener el usuario:", err);
+        res.status(500).send(err.message);
+    }
+});
+
+// Obtener un usuario por correo
+router.post('/obtenerUsuarioPorCorreo', async (req, res) => {
+    const { correo_usuario } = req.body;
+
+    try {
+        const result = await usuarioService.obtenerUsuarioPorCorreo(correo_usuario);
         if (result.rows.length === 0) {
             res.status(404).send('Usuario no encontrado');
         } else {

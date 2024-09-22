@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const habitacionService = require('./habitacion');
+const habitacionService = require('../models/habitacion');
 
 // Crear una nueva habitación
 router.post('/', async (req, res) => {
@@ -10,6 +10,21 @@ router.post('/', async (req, res) => {
         res.status(201).send('Habitación creada con éxito');
     } catch (err) {
         console.error("Error al crear la habitación:", err);
+        res.status(500).send(err.message);
+    }
+});
+
+// Obtener todos los usuarios
+router.get('/obtenerHabitaciones', async (req, res) => {
+    try {
+        const result = await habitacionService.obtenerHabitaciones();
+        if (result.rows.length === 0) {
+            res.status(404).send('No existen habitaciones registradas');
+        } else {
+            res.status(200).json(result.rows);  // Devuelve todas las habitaciones
+        }
+    } catch (err) {
+        console.error("Error al obtener habitaciones:", err);
         res.status(500).send(err.message);
     }
 });
@@ -50,8 +65,9 @@ router.post('/actualizarHabitacion', async (req, res) => {
 
 // Eliminar una habitación
 router.post('/eliminarHabitacion', async (req, res) => {
+    const { id_habitacion } = req.body;
+
     try {
-        const id_habitacion = req.body.id_habitacion;
         const result = await habitacionService.eliminarHabitacion(id_habitacion);
         if (result.rowsAffected === 0) {
             res.status(404).send('Habitación no encontrada');

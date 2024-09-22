@@ -8,19 +8,18 @@
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/css/formsStyle.css" rel="stylesheet">
-    <script src="/login.js"></script>
-    <script src="/validacion.js"></script>
 </head>
 <body>
     <div class="wrapper">
         <div class="container">
             <section id="registro-usuario">
-                <h2 class="text-center">Inicio de sesión</h2>
-                <%- include('formularios/form-inicio-sesion') %>
+                <%- include('form-login') %>
             </section>
         </div>
     </div>
     <hr>
+    <!-- Script de JavaScript -->
+    <script src="/js/login.js"></script>
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
