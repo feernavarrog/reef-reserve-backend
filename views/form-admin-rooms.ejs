@@ -1,0 +1,52 @@
+<div>
+    <label for="roomId">ID Habitación:</label>
+    <input type="text" id="roomId" disabled>
+</div>
+<div>
+    <label for="numero_hab">Número de Habitación:</label>
+    <input type="text" id="numero_hab">
+</div>
+<div>
+    <label for="info_hab">Información de la Habitación:</label>
+    <input type="text" id="info_hab">
+</div>
+<div>
+    <label for="equipamiento_hab">Equipamiento de la Habitación:</label>
+    <input type="text" id="equipamiento_hab">
+</div>
+<div>
+    <label for="valor_diario_hab">Valor Diario:</label>
+    <input type="number" id="valor_diario_hab" min="0" step="0.01">
+</div>
+<div>
+    <label for="id_ubicacion">Ubicación:</label>
+    <select id="id_ubicacion">
+        <option value="1">Piso 1 - Lobby</option>
+        <option value="2">Piso 2 - Zona Tranquila</option>
+        <option value="3">Piso 3 - Vista al Mar</option>
+        <option value="4">Piso 4 - Piscina</option>
+        <option value="5">Piso 5 - Suites Ejecutivas</option>
+        <option value="6">Piso 6 - Area Familiar</option>
+        <option value="7">Piso 7 - Atico</option>
+    </select>
+</div>
+<div>
+    <label for="id_estado">Estado:</label>
+    <select id="id_estado">
+        <option value="1">Disponible</option>
+        <option value="2">Ocupada</option>
+        <option value="3">Mantenimiento</option>
+    </select>
+</div>
+<div>
+    <label for="id_categoria">Categoría:</label>
+    <select id="id_categoria">
+        <option value="1">Turista</option>
+        <option value="2">Premium</option>
+    </select>
+</div>
+<br>
+<button onclick="createRoom()" id="createBtn">Crear Habitación</button>
+<button onclick="updateRoom()" id="updateBtn">Actualizar Habitación</button>
+
+<pre id="result"></pre>

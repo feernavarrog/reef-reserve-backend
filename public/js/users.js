@@ -112,8 +112,6 @@ async function deleteUser() {
 
 //! Funciones remasterizadas
 
-// usuario.js
-
 async function getAllUsersREM() {
     const response = await fetch('http://localhost:3000/usuarios/obtenerUsuarios');
     const users = await response.json();
@@ -131,7 +129,7 @@ async function getAllUsersREM() {
                 <td>${user[2]}</td>
                 <td>
                     <button class="btn btn-danger" onclick="deleteUserREM(${user[0]})">ELIMINAR</button>
-                    <button class="btn btn-warning" onclick="editUser(${user[0]}, '${user[3]}', '${user[1]}', '${user[2]}', '${user[4]}', ${user[5]})">EDITAR</button>
+                    <button class="btn btn-warning" onclick="editUser(${user[0]}, '${user[1]}', '${user[2]}', '${user[3]}', '${user[4]}', '${user[5]}')">EDITAR</button>
                 </td>
             </tr>
         `;
@@ -160,8 +158,9 @@ async function deleteUserREM(userId) {
 }
 
 // Editar un usuario
-function editUser(id, nombre, correo, clave, apellido, tipo_usuario) {
-    window.location.href = `/admin-updateUser?id=${id}&nombre=${nombre}&correo=${correo}&clave=${clave}&apellido=${apellido}&tipo_usuario=${tipo_usuario}`;
+function editUser(id,correo,clave,nombre,apellido,tipo_usuario) {
+    // Llenar los campos del formulario con los datos del usuario a editar 
+    window.location.href = `/admin-createEditUser?id=${id}&correo=${correo}&clave=${clave}&nombre=${nombre}&apellido=${apellido}&tipo_usuario=${tipo_usuario}`;
 }
 
 // Actualizar un usuario

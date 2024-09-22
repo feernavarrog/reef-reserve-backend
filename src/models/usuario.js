@@ -35,6 +35,13 @@ async function obtenerUsuario(id_usuario) {
     return await database.executeQuery(sql, binds);
 }
 
+// Obtener un usuario por Correo
+async function obtenerUsuarioPorCorreo(correo_usuario) {
+    const sql = `SELECT * FROM usuario WHERE correo_electronico = :correo_usuario`;
+    const binds = { correo_usuario };
+    return await database.executeQuery(sql, binds);
+}
+
 // Actualizar un usuario
 async function actualizarUsuario(id_usuario, usuario) {
     const sql = `UPDATE usuario
@@ -79,6 +86,7 @@ async function eliminarUsuario(id_usuario) {
 
 // Exporta las funciones de negocio correctamente
 module.exports = {
+    obtenerUsuarioPorCorreo,
     obtenerUsuarios,
     crearUsuario,
     obtenerUsuario,

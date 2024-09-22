@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de Habitación</title>
+    <!-- Bootstrap CSS -->
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/generalStyle.css" rel="stylesheet">
+</head> 
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Información de Habitación</h1>
+        <div class="text-center">
+        </div>
+        <form>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <!-- Campo ID Habitación oculto -->
+                    <input type="hidden" id="roomId">
+
+                    <div>
+                        <label for="numero_hab">Número de Habitación:</label>
+                        <p id="numero_hab_text"></p>
+                        <input type="hidden" id="numero_hab">
+                    </div>
+                    <div>
+                        <label for="info_hab">Información de la Habitación:</label>
+                        <p id="info_hab_text"></p>
+                        <input type="hidden" id="info_hab">
+                    </div>
+                    <div>
+                        <label for="equipamiento_hab">Equipamiento de la Habitación:</label>
+                        <p id="equipamiento_hab_text"></p>
+                        <input type="hidden" id="equipamiento_hab">
+                    </div>
+                    <div>
+                        <label for="valor_diario_hab">Valor Diario:</label>
+                        <p id="valor_diario_hab_text"></p>
+                        <input type="hidden" id="valor_diario_hab">
+                    </div>
+                    <div>
+                        <label for="id_ubicacion">Ubicación:</label>
+                        <p id="id_ubicacion_text"></p>
+                        <input type="hidden" id="id_ubicacion">
+                    </div>
+                    <div>
+                        <label for="id_estado">Estado:</label>
+                        <p id="id_estado_text"></p>
+                        <input type="hidden" id="id_estado">
+                    </div>
+                    <div>
+                        <label for="id_categoria">Categoría:</label>
+                        <p id="id_categoria_text"></p>
+                        <input type="hidden" id="id_categoria">
+                    </div>
+                    <br>
+                    <button type="button" onclick="reserveRoom()">Reservar</button>
+                    <pre id="result"></pre>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/js/rooms.js"></script>
+    <script src="/js/client-viewRoom.js"></script>
+</body>
+</html>

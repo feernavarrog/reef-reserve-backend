@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const database = require('./services/database');
-const usuarioRoutes = require('./usuario/usuarioRoutes');
-const habitacionRoutes = require('./habitacion/habitacionRoutes');  
+const database = require('./src/services/database');
+const usuarioRoutes = require('./src/routes/usuarioRoutes');
+const habitacionRoutes = require('./src/routes/habitacionRoutes');  
 
 const app = express();
 
@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 // Servir archivos estáticos desde el directorio 'public'
 app.use(express.static('public'));
 
+//! INTENTAR SOLO SERVIR PUBLIC
 // Servir archivos estáticos desde 'node_modules'
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
@@ -26,10 +27,23 @@ app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 app.use('/usuarios', usuarioRoutes);
 app.use('/habitaciones', habitacionRoutes);
 
-// Ruta PANEL DE ADMINISTRADOR PARA TESTEAR
+//! Rutas ya definidas finales
+// Ruta de inicio
 app.get('/', (req, res) => {
-  res.render('panel-admin');
+  res.render('login');
 });
+
+// Rutas administracion de usuarios
+app.get('/admin-readUser', (req, res) => { res.render('admin-readUser'); });
+app.get('/admin-createEditUser', (req, res) => { res.render('admin-createEditUser'); });
+
+// Rutas administracion de habitaciones
+app.get('/admin-readRoom', (req, res) => { res.render('admin-readRoom'); });
+app.get('/admin-createEditRoom', (req, res) => { res.render('admin-createEditRoom'); });
+
+// Ruta visualizar habitacion
+app.get('/client-catalog', (req, res) => { res.render('client-catalog'); });
+app.get('/client-viewRoom', (req, res) => { res.render('client-viewRoom'); });
 
 //! Ruta de testeo de la plantilla
 app.get('/home', (req, res) => {res.render('home');});
@@ -37,11 +51,9 @@ app.get('/register', (req, res) => {res.render('register');});
 
 app.get('/panel-admin', (req, res) => { res.render('panel-admin'); });
 
-app.get('/admin-createUser', (req, res) => { res.render('admin-createUser'); });
-app.get('/admin-readUser', (req, res) => { res.render('admin-readUser'); });
-app.get('/admin-createUser', (req, res) => { res.render('admin-createUser'); });
-app.get('/admin-updateUser', (req, res) => { res.render('admin-updateUser'); });
 
+
+app.get('/admin-updateUser', (req, res) => { res.render('admin-updateUser'); });
 
 // Ruta Login
 app.get('/login', (req, res) => {res.render('login');});
