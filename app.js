@@ -24,21 +24,22 @@ app.use(express.static('public'));
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
 
-
 //! Nuevas rutas ( en ingles ) definidas finales
-app.use('/users', userRoutes);
-app.use('/rooms', roomRoutes);
-app.get('/', (req, res) => {res.render('viewLogin');});
-app.get('/newLogin', (req, res) => {res.render('viewLogin');});
-app.get('/newRegister', (req, res) => {res.render('viewRegister');});
-app.get('/newHome', (req, res) => {res.render('viewHome');});
-app.get('/adminPannel', (req, res) => {res.render('viewAdminPannel');});
-app.get('/adminUserList', (req, res) => {res.render('viewAdminUserList');});
-app.get('/adminRoomList', (req, res) => {res.render('viewAdminRoomList');});
-app.get('/adminUserForm', (req, res) => {res.render('viewAdminCreateEditUser');});
-app.get('/adminRoomForm', (req, res) => {res.render('viewAdminCreateEditRoom');});
-app.get('/clientCatalog', (req, res) => {res.render('viewClientCatalog');});
-app.get('/roomSpecs', (req, res) => {res.render('viewClientRoomSpecs');});
+
+app.use('/users', userRoutes); // Rutas de usuarios
+app.use('/rooms', roomRoutes); // Rutas de habitaciones
+
+app.get('/', (req, res) => {res.render('viewLogin');});  // Ruta inicial 
+app.get('/newLogin', (req, res) => {res.render('viewLogin');}); // Ruta de login 
+app.get('/newRegister', (req, res) => {res.render('viewRegister');});  // Ruta de registro
+app.get('/newHome', (req, res) => {res.render('viewHome');}); // Ruta de home
+app.get('/adminPannel', (req, res) => {res.render('viewAdminPannel');}); // Ruta de panel de administrador 
+app.get('/adminUserList', (req, res) => {res.render('viewAdminUserList');}); // Ruta de lista de usuarios
+app.get('/adminRoomList', (req, res) => {res.render('viewAdminRoomList');}); // Ruta de lista de habitaciones
+app.get('/adminUserForm', (req, res) => {res.render('viewAdminCreateEditUser');}); // Ruta de formulario de usuario CRUD
+app.get('/adminRoomForm', (req, res) => {res.render('viewAdminCreateEditRoom');}); // Ruta de formulario de habitacion CRUD
+app.get('/clientCatalog', (req, res) => {res.render('viewClientCatalog');}); // Ruta de catalogo de habitaciones
+app.get('/roomSpecs', (req, res) => {res.render('viewClientRoomSpecs');}); // Ruta de especificaciones de habitacion
 
 
 // Inicializar la base de datos
@@ -59,40 +60,3 @@ process.on('SIGINT', () => {
 app.listen(3000, () => {
   console.log('Backend is running on http://localhost:3000');
 });
-
-
-
-// Rutas de la aplicación ( antiguas )
-//app.use('/usuarios', usuarioRoutes);
-//app.use('/habitaciones', habitacionRoutes);
-/*const usuarioRoutes = require('./src/routes/usuarioRoutes');
-const habitacionRoutes = require('./src/routes/habitacionRoutes');*/
-/*
-//! Rutas ya definidas finales
-// Ruta de inicio
-
-// Rutas administracion de usuarios
-app.get('/admin-readUser', (req, res) => { res.render('admin-readUser'); });
-app.get('/admin-createEditUser', (req, res) => { res.render('admin-createEditUser'); });
-
-// Rutas administracion de habitaciones
-app.get('/admin-readRoom', (req, res) => { res.render('admin-readRoom'); });
-app.get('/admin-createEditRoom', (req, res) => { res.render('admin-createEditRoom'); });
-
-// Ruta visualizar habitacion
-app.get('/client-catalog', (req, res) => { res.render('client-catalog'); });
-app.get('/client-viewRoom', (req, res) => { res.render('client-viewRoom'); });
-
-//! Ruta de testeo de la plantilla
-app.get('/home', (req, res) => {res.render('home');});
-app.get('/register', (req, res) => {res.render('register');});
-
-app.get('/panel-admin', (req, res) => { res.render('panel-admin'); });
-
-app.get('/carrousel', (req, res) => { res.render('carrousel'); });
-
-app.get('/admin-updateUser', (req, res) => { res.render('admin-updateUser'); });
-
-// Ruta Login
-app.get('/login', (req, res) => {res.render('login');});
-*/
