@@ -3,7 +3,10 @@ const cors = require('cors');
 const path = require('path');
 const database = require('./src/services/database');
 const usuarioRoutes = require('./src/routes/usuarioRoutes');
-const habitacionRoutes = require('./src/routes/habitacionRoutes');  
+const habitacionRoutes = require('./src/routes/habitacionRoutes');
+
+const userRoutes = require('./src/routes/userRoutes');
+const roomRoutes = require('./src/routes/roomRoutes');
 
 const app = express();
 
@@ -23,9 +26,23 @@ app.use(express.static('public'));
 // Servir archivos estáticos desde 'node_modules'
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
-// Rutas de la aplicación
+// Rutas de la aplicación ( antiguas )
 app.use('/usuarios', usuarioRoutes);
 app.use('/habitaciones', habitacionRoutes);
+
+//! Nuevas rutas ( en ingles ) definidas finales
+app.use('/users', userRoutes);
+app.use('/rooms', roomRoutes);
+app.get('/newLogin', (req, res) => {res.render('viewLogin');});
+app.get('/newRegister', (req, res) => {res.render('viewRegister');});
+app.get('/newHome', (req, res) => {res.render('viewHome');});
+app.get('/adminUserList', (req, res) => {res.render('viewAdminUserList');});
+app.get('/adminRoomList', (req, res) => {res.render('viewAdminRoomList');});
+app.get('/adminUserForm', (req, res) => {res.render('viewAdminCreateEditUser');});
+app.get('/adminRoomForm', (req, res) => {res.render('viewAdminCreateEditRoom');});
+app.get('/clientCatalog', (req, res) => {res.render('viewClientCatalog');});
+app.get('/roomSpecs', (req, res) => {res.render('viewClientRoomSpecs');});
+
 
 //! Rutas ya definidas finales
 // Ruta de inicio
