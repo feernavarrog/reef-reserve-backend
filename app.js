@@ -2,9 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const database = require('./src/services/database');
-const usuarioRoutes = require('./src/routes/usuarioRoutes');
-const habitacionRoutes = require('./src/routes/habitacionRoutes');
-
 const userRoutes = require('./src/routes/userRoutes');
 const roomRoutes = require('./src/routes/roomRoutes');
 
@@ -26,16 +23,16 @@ app.use(express.static('public'));
 // Servir archivos estáticos desde 'node_modules'
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 
-// Rutas de la aplicación ( antiguas )
-app.use('/usuarios', usuarioRoutes);
-app.use('/habitaciones', habitacionRoutes);
+
 
 //! Nuevas rutas ( en ingles ) definidas finales
 app.use('/users', userRoutes);
 app.use('/rooms', roomRoutes);
+app.get('/', (req, res) => {res.render('viewLogin');});
 app.get('/newLogin', (req, res) => {res.render('viewLogin');});
 app.get('/newRegister', (req, res) => {res.render('viewRegister');});
 app.get('/newHome', (req, res) => {res.render('viewHome');});
+app.get('/adminPannel', (req, res) => {res.render('viewAdminPannel');});
 app.get('/adminUserList', (req, res) => {res.render('viewAdminUserList');});
 app.get('/adminRoomList', (req, res) => {res.render('viewAdminRoomList');});
 app.get('/adminUserForm', (req, res) => {res.render('viewAdminCreateEditUser');});
@@ -44,11 +41,35 @@ app.get('/clientCatalog', (req, res) => {res.render('viewClientCatalog');});
 app.get('/roomSpecs', (req, res) => {res.render('viewClientRoomSpecs');});
 
 
+// Inicializar la base de datos
+database.initialize();
+
+// Manejador de señales para cierre adecuado de la base de datos
+process.on('SIGINT', () => {
+  database.close().then(() => {
+    console.log('Base de datos cerrada correctamente');
+    process.exit(0);
+  }).catch(err => {
+    console.error('Error al cerrar la base de datos:', err);
+    process.exit(1);
+  });
+});
+
+// Iniciar el servidor
+app.listen(3000, () => {
+  console.log('Backend is running on http://localhost:3000');
+});
+
+
+
+// Rutas de la aplicación ( antiguas )
+//app.use('/usuarios', usuarioRoutes);
+//app.use('/habitaciones', habitacionRoutes);
+/*const usuarioRoutes = require('./src/routes/usuarioRoutes');
+const habitacionRoutes = require('./src/routes/habitacionRoutes');*/
+/*
 //! Rutas ya definidas finales
 // Ruta de inicio
-app.get('/', (req, res) => {
-  res.render('login');
-});
 
 // Rutas administracion de usuarios
 app.get('/admin-readUser', (req, res) => { res.render('admin-readUser'); });
@@ -70,29 +91,8 @@ app.get('/panel-admin', (req, res) => { res.render('panel-admin'); });
 
 app.get('/carrousel', (req, res) => { res.render('carrousel'); });
 
-
-
-
 app.get('/admin-updateUser', (req, res) => { res.render('admin-updateUser'); });
 
 // Ruta Login
 app.get('/login', (req, res) => {res.render('login');});
-
-// Inicializar la base de datos
-database.initialize();
-
-// Manejador de señales para cierre adecuado de la base de datos
-process.on('SIGINT', () => {
-  database.close().then(() => {
-    console.log('Base de datos cerrada correctamente');
-    process.exit(0);
-  }).catch(err => {
-    console.error('Error al cerrar la base de datos:', err);
-    process.exit(1);
-  });
-});
-
-// Iniciar el servidor
-app.listen(3000, () => {
-  console.log('Backend is running on http://localhost:3000');
-});
+*/

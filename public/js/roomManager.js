@@ -22,6 +22,9 @@ async function createRoom() {
     });
 
     alert(await response.text());
+
+    window.location.href = '/adminRoomList'; // Redirigir de vuelta a la lista de habitaciones
+
 }
 
 // Obtener una habitación por ID
@@ -71,6 +74,9 @@ async function updateRoom() {
     });
 
     alert(await response.text());
+
+    window.location.href = '/adminRoomList'; // Redirigir de vuelta a la lista de habitaciones
+
 }
 
 // Eliminar una habitación
@@ -168,7 +174,7 @@ function editRoom(id,numero,info,equipamiento,valor,ubicacion,estado,categoria,n
 // ver una habitacion
 function viewRoom(id,numero,info,equipamiento,valor,ubicacion,estado,categoria,nombreCategoria) {
     // Llenar los campos del formulario con los datos del usuario a editar 
-    window.location.href = `/client-viewRoom?id=${id}&numero=${numero}&info=${info}&equipamiento=${equipamiento}&valor=${valor}&ubicacion=${ubicacion}&estado=${estado}&categoria=${categoria}&nombreCategoria=${nombreCategoria}`;
+    window.location.href = `/roomSpecs?id=${id}&numero=${numero}&info=${info}&equipamiento=${equipamiento}&valor=${valor}&ubicacion=${ubicacion}&estado=${estado}&categoria=${categoria}&nombreCategoria=${nombreCategoria}`;
 }
 
 //! Funcion no creada Reservar una Habitacion

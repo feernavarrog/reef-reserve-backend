@@ -31,10 +31,13 @@ async function login() {
             if (claveDB === clave) {
                 if(tipoUsuarioDB === 1){
                     // Redirigir a la página principal o panel de admin
-                    window.location.href = '/panel-admin';
+                    window.location.href = '/adminPannel';
                 } else if(tipoUsuarioDB === 3){
                     // Redirigir a la página principal o panel de usuario
-                    window.location.href = '/client-catalog';
+                    window.location.href = '/newHome';
+                } else if(tipoUsuarioDB === 2){
+                    // Redirigir a la página principal o panel de usuario
+                    window.location.href = '/newHome';
                 } else {
                     alert('Usuario no encontrado');
                 }
@@ -61,7 +64,8 @@ function validarYCrearUsuario() {
 
     if (validarRegistro(nombre, apellido, correo, clave)) {
         createUser(); // Llama a la función createUser si la validación es exitosa
-        window.location.href = '/login';
+        alert('Usuario creado con éxito');
+        window.location.href = '/newLogin';
     }
 }
 

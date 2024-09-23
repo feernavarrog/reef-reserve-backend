@@ -89,6 +89,9 @@ async function updateUser() {
     });
 
     alert(await response.text());
+
+    window.location.href = '/adminUserList'; // Redirigir de vuelta a la lista de usuarios
+
 }
 
 // Eliminar un usuario
@@ -184,5 +187,5 @@ async function updateUserREM() {
     });
 
     alert(await response.text());
-    window.location.href = '/admin-readUser'; // Redirigir de vuelta a la lista de usuarios
+    window.location.href = '/adminUserList'; // Redirigir de vuelta a la lista de usuarios
 }
