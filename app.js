@@ -41,6 +41,9 @@ app.get('/adminRoomForm', (req, res) => {res.render('viewAdminCreateEditRoom');}
 app.get('/clientCatalog', (req, res) => {res.render('viewClientCatalog');}); // Ruta de catalogo de habitaciones
 app.get('/roomSpecs', (req, res) => {res.render('viewClientRoomSpecs');}); // Ruta de especificaciones de habitacion
 
+//Ruta a pagina no encontrada
+app.use((req, res, next) => {res.status(404).render('notFound');});
+
 
 // Inicializar la base de datos
 database.initialize();
