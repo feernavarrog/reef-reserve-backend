@@ -113,7 +113,7 @@ async function getAllRoomsREM() {
                 <td>${room[4]}</td>
                 <td>
                     <button class="btn btn-danger" onclick="deleteRoomREM(${room[0]})">ELIMINAR</button>
-                    <button class="btn btn-warning" onclick="editRoom(${room[0]}, '${room[1]}', '${room[2]}', '${room[3]}', '${room[4]}', '${room[5]}', '${room[6]}', '${room[7]}', '${room[8]}')">EDITAR</button>
+                    <button class="btn btn-success" onclick="editRoom(${room[0]}, '${room[1]}', '${room[2]}', '${room[3]}', '${room[4]}', '${room[5]}', '${room[6]}', '${room[7]}', '${room[8]}')">EDITAR</button>
                 </td>
             </tr>
         `;
@@ -135,7 +135,7 @@ async function getAllRoomsForClient() {
                 <td>${room[8]}</td>
                 <td>${room[4]}</td>
                 <td>
-                    <button class="btn btn-warning" onclick="viewRoom(${room[0]}, '${room[1]}', '${room[2]}', '${room[3]}', '${room[4]}', '${room[5]}', '${room[6]}', '${room[7]}', '${room[8]}')">IR A HABITACION</button>
+                    <button class="btn btn-success" onclick="viewRoom(${room[0]}, '${room[1]}', '${room[2]}', '${room[3]}', '${room[4]}', '${room[5]}', '${room[6]}', '${room[7]}', '${room[8]}')">IR A HABITACION</button>
                 </td>
             </tr>
         `;
