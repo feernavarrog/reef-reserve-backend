@@ -27,20 +27,9 @@ async function login() {
             var usuarioDB = usuario[1];
             var claveDB = usuario[2];
         
-            
             if (claveDB === clave) {
-                if(tipoUsuarioDB === 1){
-                    // Redirigir a la página principal o panel de admin
-                    window.location.href = '/adminPannel';
-                } else if(tipoUsuarioDB === 3){
-                    // Redirigir a la página principal o panel de usuario
-                    window.location.href = '/newHome';
-                } else if(tipoUsuarioDB === 2){
-                    // Redirigir a la página principal o panel de usuario
-                    window.location.href = '/newHome';
-                } else {
-                    alert('Usuario no encontrado');
-                }
+                sessionStorage.setItem('usuario', tipoUsuarioDB);
+                window.location.href = '/newHome';
             } else {
                 alert('Contraseña incorrecta');
             }

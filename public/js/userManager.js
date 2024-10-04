@@ -129,7 +129,7 @@ async function getAllUsersREM() {
                 <td>${user[0]}</td>
                 <td>${user[3]}</td>
                 <td>${user[1]}</td>
-                <td>${user[2]}</td>
+                <td>*******</td>
                 <td>
                     <button class="btn btn-danger" onclick="deleteUserREM(${user[0]})">ELIMINAR</button>
                     <button class="btn btn-success" onclick="editUser(${user[0]}, '${user[1]}', '${user[2]}', '${user[3]}', '${user[4]}', '${user[5]}')">EDITAR</button>
